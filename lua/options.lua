@@ -30,4 +30,4 @@ vim.opt.swapfile = false
 vim.cmd 'set whichwrap+=<,>,[,],h,l'
 vim.cmd [[set iskeyword+=-]]
 vim.cmd 'set nofoldenable'
-vim.filetype.add { extension = { templ = 'templ', }, }
+vim.filetype.add { extension = { templ = 'templ' }, }
