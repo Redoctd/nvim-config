@@ -23,8 +23,6 @@ local maps = {
     { 'j',          "v:count == 0 ? 'gj' : 'j'" },
 
     -- Diagnostics
-    { '[d',         vim.diagnostic.goto_prev,                 'Go to previous diagnostic message' },
-    { ']d',         vim.diagnostic.goto_next,                 'Go to next diagnostic message' },
     { '<leader>d',  vim.diagnostic.open_float,                'Open floating diagnostic message' },
     { '<leader>lq', vim.diagnostic.setloclist,                'Open diagnostics list' },
 
