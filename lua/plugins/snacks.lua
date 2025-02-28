@@ -12,7 +12,16 @@ return {
 	lazy = false,
 	opts = {
 		lazygit = { enabled = true },
-		notifier = { enabled = true },
+		notifier = {
+			enabled = true,
+			filter = function(notification)
+				if notification.msg:match("You pressed .- key too soon!") or (notification.msg == "No information available") then
+					return false
+				end
+				return true
+			end
+
+		},
 		rename = { enabled = true },
 		input = { enabled = true },
 		statuscolumn = { enabled = true },
