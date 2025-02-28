@@ -1,5 +1,3 @@
-local pickers = require 'custom_pickers'
-
 local function cmdWrap(action)
   return "<CMD>" .. action .. "<CR>"
 end
@@ -66,7 +64,6 @@ local maps = {
     { '<leader>D',  vim.diagnostic.setloclist,                'Set diagnostic loclist' },
 
     {
-
       'grh',
       function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
       'Toggle inlays'
