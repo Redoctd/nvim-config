@@ -51,6 +51,7 @@ local maps = {
 
     -- Markdown
     { '<leader>la', function() vim.lsp.buf.code_action() end, 'Lsp actions' },
+    { '<leader>rn', function() vim.lsp.buf.rename() end,      'Rename' },
 
 
     -- Marks
