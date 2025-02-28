@@ -39,8 +39,6 @@ end
 
 function helpers.registerProjectDapConfigs(projectConfs, targetTable, templateKey)
   for _, projectConf in ipairs(projectConfs) do
-    vim.notify(vim.inspect(helpers.getProjectConfig(projectConf, templateKey)))
-
     table.insert(targetTable, helpers.getProjectConfig(projectConf, templateKey))
   end
 end
