@@ -13,4 +13,5 @@ local diagnostic_config = {
     prefix = '',
   },
 }
+
 vim.diagnostic.config(diagnostic_config)

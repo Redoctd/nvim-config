@@ -46,8 +46,6 @@ return {
 
 		dap.adapters = require('debugger.adapters')
 		dap.configurations = require('debugger.configs')
-
-		vim.notify("DAP modules loaded", vim.log.levels.INFO)
 	end,
 
 }

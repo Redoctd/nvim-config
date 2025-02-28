@@ -11,11 +11,14 @@ local modules = {
 	{ "sessions" },
 	{ "cursorword" },
 	{ "icons" },
-	{ "statusline" },
+	-- { "statusline" },
 }
 return {
 	'echasnovski/mini.nvim',
 	version = false,
+	dependencies = {
+		"nvim-tree/nvim-web-devicons"
+	},
 	config = function()
 		for _, module in ipairs(modules) do
 			require('mini.' .. module[1]).setup(module[2])

@@ -1,9 +1,9 @@
 require 'options'
+require 'keybinds'
 require 'config.lazy'
 require 'diagnostics'
 
 require 'user_commands'
-require 'keybinds'
 
 require 'lsp-helpers'.enableLsps()
 
