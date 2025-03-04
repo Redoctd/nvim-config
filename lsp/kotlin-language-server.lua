@@ -7,6 +7,7 @@ return {
     'pom.xml',             -- Maven
     'build.gradle',        -- Gradle
     'build.gradle.kts',    -- Gradle
+    'mvnw',
   },
-  filetypes = { "kt" }
+  filetypes = { "kt", "kotlin" }
 }
