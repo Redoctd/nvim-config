@@ -8,7 +8,7 @@ local formatters = {
   "gofumpt",
   "goimports",
   "rustywind",
-  "trim_whitespace",
+  -- "trim_whitespace",
 }
 
 local function getUniqueLinters(lintersByLang)
@@ -58,7 +58,7 @@ end
 
 function helpers.getAutoInstalledTools()
   return vim.tbl_flatten({
-    -- formatters,
+    formatters,
     helpers.getConfiguredLspNames(),
     getUniqueLinters(helpers.lintersByLanguage)
   })
