@@ -4,6 +4,8 @@ return {
   root_markers = { 'package.json', 'vue.config.js' },
   settings = {
     vetur = {
+      ignoreProjectWarning = true,
+
       useWorkspaceDependencies = false,
       validation = {
         template = true,
