@@ -3,7 +3,23 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
-			{ "igorlfs/nvim-dap-view",           opts = {} },
+			{
+				"igorlfs/nvim-dap-view",
+				opts = {
+					winbar = {
+						default_section = "repl",
+					},
+					windows = {
+						height = 50,
+						terminal = {
+							-- 'left'|'right': Terminal position in layout
+							position = "right",
+							hide = {},
+							start_hidden = false,
+						},
+					}
+				}
+			},
 			{ "theHamsta/nvim-dap-virtual-text", opts = {} },
 			{
 				"jay-babu/mason-nvim-dap.nvim",
@@ -34,8 +50,6 @@ return {
 
 			dap.adapters = require('debugger.adapters')
 			dap.configurations = require('debugger.configs')
-
-			require 'utils'.log(dap)
 		end,
 	},
 	{
