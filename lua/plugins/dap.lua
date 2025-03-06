@@ -1,51 +1,50 @@
-local function addListeners(dap, dapui)
-	dap.listeners.after.event_initialized["dapui_config"] = function()
-		dapui.open({ reset = true })
-	end
-	dap.listeners.before.event_terminated["dapui_config"] = function()
-		dapui.close()
-	end
-	dap.listeners.before.event_exited["dapui_config"] = function()
-		dapui.close()
-	end
-end
-
-local function setKeyBinds(dap, dapui)
-	local opts = { noremap = true, silent = true }
-	vim.keymap.set("n", "<F5>", dap.continue, vim.tbl_extend("force", { desc = "DAP Continue" }, opts))
-	vim.keymap.set("n", "<F10>", dap.step_over, vim.tbl_extend("force", { desc = "DAP Step Over" }, opts))
-	vim.keymap.set("n", "<F11>", dap.step_into, vim.tbl_extend("force", { desc = "DAP Step Into" }, opts))
-	vim.keymap.set("n", "<F12>", dap.step_out, vim.tbl_extend("force", { desc = "DAP Step Out" }, opts))
-	vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint,
-		vim.tbl_extend("force", { desc = "Toggle Breakpoint" }, opts))
-	vim.keymap.set("n", "leaderde", dapui.eval, vim.tbl_extend("force", { desc = "DAP eval " }, opts))
-	vim.keymap.set("n", "<F7>", dapui.toggle, vim.tbl_extend("force", { desc = "Toggle DAP UI" }, opts))
-end
-
 return {
-	"mfussenegger/nvim-dap",
-	dependencies = {
-		{
-			"rcarriga/nvim-dap-ui",
-			opts = require 'debugger.ui_opts',
-			dependencies = { "nvim-neotest/nvim-nio" },
+
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			{ "igorlfs/nvim-dap-view",           opts = {} },
+			{ "theHamsta/nvim-dap-virtual-text", opts = {} },
+			{
+				"jay-babu/mason-nvim-dap.nvim",
+				opts = { automatic_installation = true },
+			},
 		},
-		{ "theHamsta/nvim-dap-virtual-text", opts = {} },
-		{
-			"jay-babu/mason-nvim-dap.nvim",
-			opts = { automatic_installation = true },
-		},
+		event = "VeryLazy",
+		config = function()
+			local dap = require("dap")
+
+			local function openScopes()
+				local widgets = require("dap.ui.widgets")
+				widgets.centered_float(widgets.scopes, { border = "rounded" })
+			end
+			local binds = {
+				{ "<F5>",        dap.continue,                                     "DAP continue" },
+				{ "<F10>",       dap.step_over,                                    "DAP Step Over" },
+				{ "<F11>",       dap.step_into,                                    "DAP Step Into" },
+				{ "<F12>",       dap.step_out,                                     "DAP Step Out" },
+				{ "<leader>b",   dap.toggle_breakpoint,                            "DAP Breakpoint" },
+				{ "<leader>de",  function() require("dap.ui.widgets").hover() end, "DAP Eval" },
+				{ "<F7>",        function() vim.cmd('DapViewToggle') end,          "DAP View Toggle" },
+				{ "<leader>dvv", openScopes,                                       "DAP Toggle Var View" },
+			}
+
+			local utils = require 'utils'
+			utils.BindKeyTableNormalMode(binds)
+
+			dap.adapters = require('debugger.adapters')
+			dap.configurations = require('debugger.configs')
+
+			require 'utils'.log(dap)
+		end,
 	},
-	event = "VeryLazy",
-	config = function()
-		local dap = require("dap")
-		local dapui = require("dapui")
-
-		addListeners(dap, dapui)
-		setKeyBinds(dap, dapui)
-
-		dap.adapters = require('debugger.adapters')
-		dap.configurations = require('debugger.configs')
-	end,
-
+	{
+		{
+			"Cliffback/netcoredbg-macOS-arm64.nvim",
+			dependencies = { "mfussenegger/nvim-dap" },
+			config = function()
+				require('netcoredbg-macOS-arm64').setup(require('dap'))
+			end
+		}
+	}
 }
