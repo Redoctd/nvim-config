@@ -1,0 +1,54 @@
+{
+  "div": {
+    "prefix": "div",
+    "body": ["<div>", "${1}", "</div>"]
+  },
+  "anchor": {
+    "prefix": "a",
+    "body": ["<a :href=\"${1}\">", "${2}", "</a>"]
+  },
+  "image": {
+    "prefix": "img",
+    "body": ["<img src=\"${1}\" alt=\"${2}\">"]
+  },
+  "unordered list": {
+    "prefix": "ul",
+    "body": ["<ul>", "  <li>${1}</li>", "</ul>"]
+  },
+  "ordered list": {
+    "prefix": "ol",
+    "body": ["<ol>", "  <li>${1}</li>", "</ol>"]
+  },
+  "list item": {
+    "prefix": "li",
+    "body": ["<li>${1}</li>"]
+  },
+  "paragraph": {
+    "prefix": "p",
+    "body": ["<p>${1}</p>"]
+  },
+  "heading 1": {
+    "prefix": "h1",
+    "body": ["<h1>${1}</h1>"]
+  },
+  "heading 2": {
+    "prefix": "h2",
+    "body": ["<h2>${1}</h2>"]
+  },
+  "heading 3": {
+    "prefix": "h3",
+    "body": ["<h3>${1}</h3>"]
+  },
+  "heading 4": {
+    "prefix": "h4",
+    "body": ["<h4>${1}</h4>"]
+  },
+  "heading 5": {
+    "prefix": "h5",
+    "body": ["<h5>${1}</h5>"]
+  },
+  "heading 6": {
+    "prefix": "h6",
+    "body": ["<h6>${1}</h6>"]
+  }
+}

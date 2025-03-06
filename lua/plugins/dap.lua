@@ -1,3 +1,19 @@
+-- If we're on mac we need to load netcoredbg plugin
+local function macSetup()
+	local arch = require("jit").arch
+
+	if arch == "arm64" then
+		return {
+			"Cliffback/netcoredbg-macOS-arm64.nvim",
+			dependencies = { "mfussenegger/nvim-dap" },
+			config = function()
+				require('netcoredbg-macOS-arm64').setup(require('dap'))
+			end
+		}
+	end
+	return nil
+end
+
 return {
 
 	{
@@ -25,6 +41,7 @@ return {
 				"jay-babu/mason-nvim-dap.nvim",
 				opts = { automatic_installation = true },
 			},
+			macSetup()
 		},
 		event = "VeryLazy",
 		config = function()
@@ -52,13 +69,4 @@ return {
 			dap.configurations = require('debugger.configs')
 		end,
 	},
-	{
-		{
-			"Cliffback/netcoredbg-macOS-arm64.nvim",
-			dependencies = { "mfussenegger/nvim-dap" },
-			config = function()
-				require('netcoredbg-macOS-arm64').setup(require('dap'))
-			end
-		}
-	}
 }

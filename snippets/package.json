@@ -1,0 +1,23 @@
+{
+  "name": "personal-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "csharp",
+        "path": "./cs.json"
+      },
+      {
+        "language": "vue",
+        "path": "./vue.json"
+      },
+      {
+        "language": "zig",
+        "path": "./zig.json"
+      },
+      {
+        "language": "kotlin",
+        "path": "./kotlin.json"
+      }
+    ]
+  }
+}

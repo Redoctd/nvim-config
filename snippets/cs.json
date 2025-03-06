@@ -1,0 +1,67 @@
+{
+  "function": {
+    "prefix": "fn",
+    "body": ["${1}()", "{", "  ${2}", "}"]
+  },
+  "log variable": {
+    "prefix": "logvar",
+    "body": ["", "Console.WriteLine(\"${1}: \",${1});", "${2}"]
+  },
+  "iterator": {
+    "prefix": "iter",
+    "body": [".${1}(${2} => ${3})${4}"]
+  },
+  "class": {
+    "prefix": "class",
+    "body": ["namespace ${1};", "", "class ${2}", "{", "${3}", "}"]
+  },
+  "property": {
+    "prefix": "prop",
+    "body": ["public ${1} = {get; set;}", "${2}"]
+  },
+  "api controller": {
+    "prefix": "cont",
+    "body": [
+      "namespace ${1};",
+      "",
+      "[ApiController]",
+      "[Route(\"${2}\")]",
+      "public class ${3}Controller : ControllerBase",
+      "{",
+      "${4}",
+      "}"
+    ]
+  },
+  "api endpoint": {
+    "prefix": "endpoint",
+    "body": [
+      "[Http${1}]",
+      "public ActionResult<${2}> ${3}(${4})",
+      "{",
+      "${5}",
+      "}"
+    ]
+  },
+  "if": {
+    "prefix": "if",
+    "body": ["if (${1})", "{", "${2}", "}"]
+  },
+  "foreach": {
+    "prefix": "foreach",
+    "body": ["foreach (var ${1} in ${2})", "{", "${3}", "}"]
+  },
+  "pattern match": {
+    "prefix": "switch",
+    "body": [
+      "${1} switch",
+      "{",
+      "${2} => ${3},",
+      "_ => throw new ArgumentException(\"Unhandled argument\", nameof(${1})),",
+      "}"
+    ]
+  },
+  "lamda": {
+    "prefix": "lamda",
+    "body": ["(${1}) => ${2}"]
+  }
+}

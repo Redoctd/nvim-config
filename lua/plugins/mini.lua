@@ -2,7 +2,7 @@
 local modules = {
 	{ "ai" },
 	{ "comment" },
-	-- { "pairs" },
+	{ "pairs" },
 	{ "surround" },
 	{ "bracketed" },
 	{ "files" },
@@ -11,6 +11,7 @@ local modules = {
 	{ "sessions" },
 	{ "cursorword" },
 	{ "icons" },
+	-- { "snippets" },
 	-- { "statusline" },
 }
 return {
