@@ -68,6 +68,11 @@ local maps = {
       'Toggle inlays'
     },
 
+    -- Ovreseer
+    { "<leader>odb",     cmdWrap("OverseerRun Build C# Project"),                                "Overseer dotnet build" },
+    { "<leader>oar",     cmdWrap("OverseerRun RestartAspire"),                                   "Overseer dotnet build" },
+
+    -- snacks
     { "<leader>?",       function() Snacks.picker.recent() end,                                  "Find recently opened files" },
     { "<leader><space>", function() Snacks.picker.buffers() end,                                 "Find existing buffers" },
     { "<leader>f",       function() Snacks.picker.files() end,                                   "Search files" },
