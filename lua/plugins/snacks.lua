@@ -45,11 +45,12 @@ return {
 			},
 			sources = {
 				projects = {
-					dev = { "~/HilmaAll/src", "~/HilmaAll/src/hilma-tendering", "~/HilmaAll/src/Hilma", "~/HilmaAll/src/espd", "~/.config", "~/HilmaAll" },
+					dev = { "~/HilmaAll/src", "~/HilmaAll/src/hilma-tendering", "~/HilmaAll/src/Hilma", "~/HilmaAll/src/espd", "~/.config", "~/HilmaAll", "~/repos" },
 					patterns = {
 						".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile",
 						"**.csproj", "**.sln", "Cargo.toml", "go.mod", "init.lua", ".gitignore",
-						"build.gradle", "build.gradle.kts", "pom.xml", "LICENSE", ".order" },
+						"build.gradle", "build.gradle.kts", "pom.xml", "LICENSE", ".order",
+						"LICENSE", "README.md", "build.zig" },
 				},
 
 				grep = {
