@@ -15,6 +15,10 @@ return {
 			"nvim-lua/plenary.nvim",
 			"sindrets/diffview.nvim",
 		},
+		opts = {
+			console_timeout = 0,
+			auto_close_console = false,
+		},
 		config = true
 	}
 }
