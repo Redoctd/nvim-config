@@ -3,11 +3,17 @@ local modules = {
 	{ "ai" },
 	{ "comment" },
 	{ "pairs" },
-	{ "surround" },
+	{ "surround", { mappings = { update_n_lines = "sl" } } },
 	{ "bracketed" },
 	{ "files" },
 	{ "jump" },
-	{ "jump2d",    { view = { dim = true, n_steps_ahead = 99 } } },
+	{
+		"jump2d",
+		{
+			view = { n_steps_ahead = 0 },
+			mappings = { start_jumping = "<leader><CR>" },
+		},
+	},
 	{ "sessions" },
 	{ "cursorword" },
 	{ "icons" },
@@ -15,14 +21,14 @@ local modules = {
 	-- { "statusline" },
 }
 return {
-	'echasnovski/mini.nvim',
+	"echasnovski/mini.nvim",
 	version = false,
 	dependencies = {
-		"nvim-tree/nvim-web-devicons"
+		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		for _, module in ipairs(modules) do
-			require('mini.' .. module[1]).setup(module[2])
+			require("mini." .. module[1]).setup(module[2])
 		end
-	end
+	end,
 }
