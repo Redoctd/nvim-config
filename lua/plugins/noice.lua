@@ -1,11 +1,11 @@
 return {
-	'folke/noice.nvim',
-	event = 'VeryLazy',
+	"folke/noice.nvim",
+	event = "VeryLazy",
 	opts = {
 		lsp = {
 			override = {
-				['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-				['vim.lsp.util.stylize_markdown'] = true,
+				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+				["vim.lsp.util.stylize_markdown"] = true,
 			},
 		},
 		presets = {
@@ -17,26 +17,26 @@ return {
 		},
 	},
 	dependencies = {
-		'MunifTanjim/nui.nvim',
+		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		require('noice').setup {
+		require("noice").setup({
 			views = {
 				cmdline_popup = {
 					position = {
-						row = '40%',
-						col = '50%',
+						row = "40%",
+						col = "50%",
 					},
 					border = { style = "none", padding = { 1, 1 } },
 					size = {
-						width = '60',
-						height = 'auto',
+						width = "60",
+						height = "auto",
 					},
 					win_options = {
-						winhighlight = { Normal = 'NormalFloat', FloatBorder = 'NormalFloat' },
-					}
+						winhighlight = { Normal = "NormalFloat", FloatBorder = "NormalFloat" },
+					},
 				},
 			},
-		}
+		})
 	end,
 }
